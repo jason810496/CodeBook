@@ -11,7 +11,7 @@ using namespace std;
 #define REP(i,st,n) for(int i=st;i<=n;++i)
 #define PB emplace_back
 typedef pair<int,int> pii;
-const int MAX_N = 1e4+5;
+const int MAX_N = 1e6+5;
 const int INF = 1e9;
 /*
 inline bool comp(int a,int b){
