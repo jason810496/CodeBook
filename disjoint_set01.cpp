@@ -13,23 +13,15 @@ inline void Initialize(int n){
 
 inline int Find(int x){
     // check the boss
-    return (x==P[x] ? x: P[x]=Find(x) ); 
+    return (x==P[x] ? x: P[x]=Find(P[x]) ); 
 }
 
 inline void Union(int a,int b){
     a=Find(a),b=Find(b);
     if(a==b) return;
-    // Union by group size (merge to bigger group)
-    else if(Group_Size[a]>Group_Size[b]){
-        P[b]=a;
-        Group_Size[a]+=Group_Size[b];
-        Group_Size[b]=0;
-    }
-    else{
-        P[a]=b;
-        Group_Size[b]+=Group_Size[a];
-        Group_Size[a]=0;
-    }
+    if(Group_Size[a]<Group_Size[b]) swap(a,b);
+    P[b]=a;
+    Group_Size[a]+=Group_Size[b];
 }
 
 int main(){
