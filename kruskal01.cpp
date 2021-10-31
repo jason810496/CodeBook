@@ -41,16 +41,9 @@ inline int Find(int x){
 void Union(int a,int b){
     a=Find(a),b=Find(b);
     if(a==b) return;
-    if(Group_size[a]>Group_size[b]){
-        Group_size[a]+=Group_size[b];
-        Group_size[b]=0;
-        P[b]=a;
-    }
-    else{
-        Group_size[b]+=Group_size[a];
-        Group_size[a]=0;
-        P[a]=b;
-    }
+    if(Group_size[b]>Group_size[a]) swap(a,b);
+    Group_size[a]+=Group_size[b];
+    P[b]=a;
 }
 inline bool comp(Edge a,Edge b){
     // sort in increasing order (by edge weight)

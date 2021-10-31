@@ -7,6 +7,14 @@ using namespace std;
     : Query(i)-Query(j-1)
 */
 int BIT[N],arr[N],n=100;
+
+void init(){ // O(n) init
+    for(int i=1;i<=n;++i){
+        BIT[i]+=arr[i];
+        int j=i+lowbit(i);
+        if(j<=n ) BIT[j]+=BIT[i];
+    }
+}
 inline void Update(int i,int val){
     for(;i<=n;i+=lowbit(i)) BIT[i]+=val;
 }

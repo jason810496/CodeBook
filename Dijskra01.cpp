@@ -58,7 +58,7 @@ int main(){
             // update if the path is shoter ,and push into pq
             if(Dis[next] > Dis[cur]+ weight){
                 Dis[next]= Dis[cur]+ weight;
-                pq.push({Dis[next], next});
+                pq.push({Dis[next], next}); /* {dis,vertex}*/
             }
         }
     }

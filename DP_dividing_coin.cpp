@@ -31,7 +31,6 @@ int main(){
             dp[w]=max(dp[w],dp[w-items[i]]+items[i]);
         }
     }
-
     cout<<total-dp[limit]*2;
     
     return 0;

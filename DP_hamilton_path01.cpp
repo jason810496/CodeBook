@@ -26,10 +26,8 @@ bool Path(int s,int s_size,int j){
 bool Hamilton_path(){
     memset(DP,0,sizeof(DP));
     memset(visited,0,sizeof(visited));
-
     for(int i=0;i<N;i++){
         if( Path((1<<N)-1 , N ,i) ) return true;
     }
-
     return false;
 }

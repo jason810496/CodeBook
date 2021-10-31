@@ -1,10 +1,13 @@
 #include<iostream>
 using namespace std;
-#define N 1000
-int P[N+1],Group_Size[N+1];
-
+const int N= 1e6+5;
+int P[N],Group_Size[N];
+/*
+    DSU
+    check : https://zerojudge.tw/ShowProblem?problemid=f677
+*/
 inline void Initialize(int n){
-    for(int i=1;i<=n;i++){
+    for(int i=0;i<=n;i++){
         P[i]=i; //initialize boss as itself
         Group_Size[i]=1;
     }
@@ -25,9 +28,13 @@ inline void Union(int a,int b){
 }
 
 int main(){
-    Initialize(100);
-    Union(10,20);
-    Union(20,30);
-    cout<<(Find(10)==Find(30) ? "Same group":"Different group");
+    int n ,m,x,y;
+    cin>>n>>m;
+    Initialize(n);
+    while(m--){
+        cin>>x>>y;
+        Union(x,y);
+    }
+    cout<<Group_Size[Find(0)];
     return 0;
 }
