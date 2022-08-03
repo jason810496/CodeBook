@@ -1,14 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-ll pre[200005];
-ll n, q; 
 const int MAXN = 200005;
+#define ll long long 
+ll pre[MAXN];
+ll n, q; 
+
 struct Node {
     int chg, data;
 }ST[MAXN*4];
 void build(int i, int l, int r) {
     if (l == r) {
-        debug(i, pre[l]);
         ST[i].data = pre[l];
         return ;
     }
@@ -19,7 +20,6 @@ void build(int i, int l, int r) {
 }
 void add(int a, int b, int i, int l, int r, ll x) {
     if (a <= l && r <= b) {
-        debug(i, l, r, x);
         ST[i].chg += x;
     }
     else if (r < a || b < l) return ;

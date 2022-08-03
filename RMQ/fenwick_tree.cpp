@@ -1,24 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#ifdef tars3017
-#define debug(...) do{\
-    fprintf(stderr, "Line: %d -(%s) = ", __LINE__, #__VA_ARGS__);\
-    _DO(__VA_ARGS__);\
-}while(0)
-template<typename I>void _DO(I&&x){cerr<<x<<endl;}
-template<typename I, typename...T>void _DO(I&&x, T&&...tail) {
-    cerr<<x<<", ";
-    _DO(tail...);
-}
-#else 
-#define debug(...)
-#endif
-#define F first
-#define S second
-#define pii pair<int, int>
-#define ll long long
+const int MAXN = 1e5+5;
 
-#define MAXN 1005
 struct FenwickTree {
     // index from 1 to n
     int tree[MAXN];
@@ -31,7 +14,6 @@ struct FenwickTree {
         int s = 0;
         while (k > 0) {
             s += tree[k];
-            debug(k);
             k -= k&-k;
         }
         return s;
