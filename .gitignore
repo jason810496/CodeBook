@@ -1,0 +1,12 @@
+# Executables
+*.exe
+*.out
+*.app
+
+# Test
+.log
+.in
+.log
+
+# config
+.vscode
