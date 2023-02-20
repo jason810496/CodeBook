@@ -10,6 +10,7 @@ void Dijkstra(vector<edge> G[], vector<int> &dist, int src) {
     dist[src] = 0; pq.push({src, 0});
     while (!pq.empty()) {
         auto u = pq.top(); pq.pop();
+        if( u.weight != dist[u.node] ) continue;
         for (auto v : G[u.node]) {
             if (dist[v.node] > dist[u.node] + v.weight) {
                 dist[v.node] = dist[u.node] + v.weight;
