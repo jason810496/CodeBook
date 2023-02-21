@@ -13,7 +13,7 @@ struct DisjointSet {
     }
 }djs;
 bool cmp(const Edge &a, const Edge &b) {
-    return a.dis < b.dis;
+    return a.dis > b.dis;
 }
 struct Edge {
     int u, v, dis;
